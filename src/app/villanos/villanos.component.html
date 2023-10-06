@@ -1,0 +1,21 @@
+<h2>My Villanos</h2>
+
+<div>
+  <label for="new-villano">Villano name: </label>
+  <input id="new-villano" #villanosName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(villanosName.value); villanosName.value=''">
+    Add Villanos
+  </button>
+</div>
+
+<ul class="villanos">
+  <li *ngFor="let villano of villanos">
+    <a routerLink="/detail/{{villano.id}}">
+      <span class="badge">{{villano.id}}</span> {{villano.name}} {{villano.poder}}
+    </a>
+    <button type="button" class="delete" title="delete villano"
+      (click)="delete(villano)">x</button>
+  </li>
+</ul>
